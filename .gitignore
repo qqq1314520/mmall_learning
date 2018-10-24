@@ -1,0 +1,40 @@
+*.class
+
+# package file ignore
+*.war
+*.ear
+
+# kdiff3 ignore
+*.orig
+
+# maven target dir all ignore
+target/
+
+# eclipse file ignore
+.settings/
+.project/
+.classpatch
+
+# idea file ignore
+.idea/
+/idea/
+*.ipr
+*.iml
+*.iws
+out/
+
+# temp临时 file ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system 产生 file
+.DS_Store
+Thumbs.db
+
+
+
+
+
