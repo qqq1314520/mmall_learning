@@ -1,3 +1,4 @@
+<%@ page pageEncoding="utf-8"%>
 <html>
 <body>
 <h2>Hello IDEA!</h2>

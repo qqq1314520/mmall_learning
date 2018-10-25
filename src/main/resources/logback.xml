@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoding>UTF-8</encoding>
+        <encoder>
+            <!-- 日志格式 -->
+            <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <!-- 大于Debug级别的都会打印出来 -->
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <appender name="mmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- 日志存储位置 -->
+        <File>G:/IDEAProject/log/mmall.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>G:/IDEAProject/log/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <!-- 是否追加 -->
+            <append>true</append>
+            <!-- 保存最大时间2天 -->
+            <maxHistory>2</maxHistory>
+        </rollingPolicy>
+        <!-- 日志格式 -->
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 错误日志 -->
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <File>G:/IDEAProject/log/error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>G:/IDEAProject/log/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+
+            <append>true</append>
+            <maxHistory>2</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <logger name="com.mmall" additivity="false" level="INFO" >
+        <!-- 错误信息还会追加到mmall.log和console.log中 -->
+        <appender-ref ref="mmall" />
+        <appender-ref ref="console"/>
+    </logger>
+
+    <!-- dao层的信息日志 -->
+    <logger name="com.mmall.dao" level="DEBUG"/>
+
+    <!--<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" >-->
+        <!--<appender-ref ref="console"/>-->
+    <!--</logger>-->
+
+    <!--<logger name="java.sql.Connection" level="DEBUG">-->
+        <!--<appender-ref ref="console"/>-->
+    <!--</logger>-->
+    <!--<logger name="java.sql.Statement" level="DEBUG">-->
+        <!--<appender-ref ref="console"/>-->
+    <!--</logger>-->
+
+    <!--<logger name="java.sql.PreparedStatement" level="DEBUG">-->
+        <!--<appender-ref ref="console"/>-->
+    <!--</logger>-->
+
+
+    <root level="DEBUG">
+        <!-- dao层信息还会追加到error.log和console.log中 -->
+        <appender-ref ref="console"/>
+        <appender-ref ref="error"/>
+    </root>
+
+</configuration>
