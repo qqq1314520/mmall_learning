@@ -4,3 +4,4 @@ vo全称:view object 封装pojo的类，还可以封装bo类
 pojo:实体类
 bo全称：business object 封装pojo的类
 common：存放公共类和常量等
+controller.portal是controller的子包，是留给前端整合时看的
