@@ -5,5 +5,6 @@
 .gitignore文件中可以配置git仓库推送忽略内容。
 git init 初始化并生成.git 文件
 更改了
+添加一些新的信息。
 </body>
 </html>
