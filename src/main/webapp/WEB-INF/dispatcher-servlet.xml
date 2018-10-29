@@ -28,13 +28,13 @@
                 </property>
             </bean>
             <!-- springmvc 进行自动反序列化 json数据转换 -->
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+            <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="supportedMediaTypes">
                     <list>
                         <value>application/json;charset=UTF-8</value>
                     </list>
                 </property>
-            </bean>
+            </bean>-->
         </mvc:message-converters>
     </mvc:annotation-driven>
 

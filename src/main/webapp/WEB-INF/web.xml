@@ -29,17 +29,18 @@
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
 
-  <!-- spring文件的监听器 -->
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-    <!-- spring文件的加载器 -->
+  <!-- spring文件的加载器 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
       classpath:applicationContext.xml
     </param-value>
   </context-param>
+
+  <!-- spring文件的监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
     <!-- springMVC文件的加载器 -->
   <servlet>
