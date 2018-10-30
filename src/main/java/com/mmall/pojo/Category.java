@@ -3,13 +3,13 @@ package com.mmall.pojo;
 import java.util.Date;
 
 public class Category {
-    private Integer id;
+    private Integer id;//分类的类名的id
 
-    private Integer parentId;
+    private Integer parentId;//其父分类的id
 
-    private String name;
+    private String name;//分类的类名
 
-    private Boolean status;
+    private Boolean status;//分类的状态
 
     private Integer sortOrder;
 

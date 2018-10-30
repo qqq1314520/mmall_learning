@@ -19,19 +19,19 @@ public class Const {
         int ROLE_ADMIN = 1;//管理员
     }
 
-    /*public interface ProductListOrderBy{
+    public interface ProductListOrderBy{
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
     }
 
-    public interface Cart{
+    /*public interface Cart{
         int CHECKED = 1;//鍗宠喘鐗╄溅閫変腑鐘舵€?
         int UN_CHECKED = 0;//璐墿杞︿腑鏈€変腑鐘舵€?
         String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";
         String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";
-    }
+    }*/
 
     public enum ProductStatusEnum{
-        ON_SALE(1,"鍦ㄧ嚎");
+        ON_SALE(1,"在线");
         private String value;
         private int code;
         ProductStatusEnum(int code,String value){
@@ -48,7 +48,7 @@ public class Const {
         }
     }
 
-
+    /*
     public enum OrderStatusEnum{
         CANCELED(0,"宸插彇娑?),
                 NO_PAY(10,"鏈敮浠?),

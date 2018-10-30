@@ -221,15 +221,22 @@ public class ProductServiceImpl implements IProductService {
         return ServerResponse.createBySuccess(pageResult);
     }
 
-    /*
+    /**
+     * 前端获取商品详情
+     * @param productId
+     * @return
+     */
     public ServerResponse<ProductDetailVo> getProductDetail(Integer productId){
+        //商品id是否为空
         if(productId == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
+        //商品是否存在
         Product product = productMapper.selectByPrimaryKey(productId);
         if(product == null){
             return ServerResponse.createByErrorMessage("产品已下架或者删除");
         }
+        //商品是否在线
         if(product.getStatus() != Const.ProductStatusEnum.ON_SALE.getCode()){
             return ServerResponse.createByErrorMessage("产品已下架或者删除");
         }
@@ -237,15 +244,28 @@ public class ProductServiceImpl implements IProductService {
         return ServerResponse.createBySuccess(productDetailVo);
     }
 
-
+    /**
+     * 前端通过 关键字 或 分类的类名 查询商品列表的service方法
+     * @param keyword  关键字
+     * @param categoryId  分类的类名
+     * @param pageNum
+     * @param pageSize
+     * @param orderBy
+     * @return
+     */
     public ServerResponse<PageInfo> getProductByKeywordCategory(String keyword,Integer categoryId,int pageNum,int pageSize,String orderBy){
+        //如果关键字和分类的类名都不存在
         if(StringUtils.isBlank(keyword) && categoryId == null){
+            //返回参数错误
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
         List<Integer> categoryIdList = new ArrayList<Integer>();
 
+        //如果分类的id不为空
         if(categoryId != null){
+            //通过类的id获取该类名的所有信息
             Category category = categoryMapper.selectByPrimaryKey(categoryId);
+            //如果该类的不存在且关键字为空
             if(category == null && StringUtils.isBlank(keyword)){
                 //没有该分类,并且还没有关键字,这个时候返回一个空的结果集,不报错
                 PageHelper.startPage(pageNum,pageSize);
@@ -253,22 +273,31 @@ public class ProductServiceImpl implements IProductService {
                 PageInfo pageInfo = new PageInfo(productListVoList);
                 return ServerResponse.createBySuccess(pageInfo);
             }
+            //递归查询该分类的id及孩子节点的id，后面要查询所有categoryIdList中的数据
             categoryIdList = iCategoryService.selectCategoryAndChildrenById(category.getId()).getData();
         }
+        //关键字不为空，采用模糊查询
         if(StringUtils.isNotBlank(keyword)){
+            //拼接字符串
             keyword = new StringBuilder().append("%").append(keyword).append("%").toString();
         }
-
+        //开始分页
         PageHelper.startPage(pageNum,pageSize);
-        //排序处理
+        //排序处理不为空时
         if(StringUtils.isNotBlank(orderBy)){
+            //如果orderBy包含在asc或desc中
             if(Const.ProductListOrderBy.PRICE_ASC_DESC.contains(orderBy)){
+                //分割orderBy
                 String[] orderByArray = orderBy.split("_");
+                //price asc
                 PageHelper.orderBy(orderByArray[0]+" "+orderByArray[1]);
             }
         }
+        //用三目运算符判断categoryIdList.size()是否为0，为0返回空，不为0返回categoryIdList  StringUtils.isBlank(keyword)判断关键字是否为空
+        //这里查出了该分类的所有子分类的数据，还可以查出带关键字的分类
         List<Product> productList = productMapper.selectByNameAndCategoryIds(StringUtils.isBlank(keyword)?null:keyword,categoryIdList.size()==0?null:categoryIdList);
 
+        //将productList全部转换为扩展对象，并添加到扩展类的集合中，便于前端调用
         List<ProductListVo> productListVoList = Lists.newArrayList();
         for(Product product : productList){
             ProductListVo productListVo = assembleProductListVo(product);
@@ -276,10 +305,9 @@ public class ProductServiceImpl implements IProductService {
         }
 
         PageInfo pageInfo = new PageInfo(productList);
+        //完成分页
         pageInfo.setList(productListVoList);
         return ServerResponse.createBySuccess(pageInfo);
-    }*/
-
-
+    }
 
 }
