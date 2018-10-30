@@ -6,7 +6,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import java.io.Serializable;
 
 /**
- * 实体扩展类对象
+ * 扩展类对象
  * 由于构造方法私有化，向外部暴露的接口 就写成了static类型的
  */
 

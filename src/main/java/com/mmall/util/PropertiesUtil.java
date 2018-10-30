@@ -18,6 +18,8 @@ public class PropertiesUtil {
     //java的类
     private static Properties props;
 
+    //代码块的执行顺序：静态代码块>普通代码块>构造代码块
+    //static{执行一次} > {} > public qwe{}
     static {
         String fileName = "mmall.properties";
         props = new Properties();

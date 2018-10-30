@@ -33,4 +33,6 @@ public interface IUserService {
     ServerResponse<User> getInformation(Integer userId);
 
     ServerResponse checkAdminRole(User user);
+
+    User selectByUserId(Integer id);
 }

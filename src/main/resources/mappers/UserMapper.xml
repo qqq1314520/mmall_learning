@@ -202,6 +202,7 @@
     and id != #{userId}
   </select>
 
+
   <!--<select id="checkAdminRole" resultType="com.mmall.common.ServerResponse">
     select count(1) from mmall_user
     where role = #{role}
@@ -213,6 +214,8 @@
     where username = #{username}
   </update>
 
-
+  <select id="selectByUserId" resultType="com.mmall.pojo.User">
+    select <include refid="Base_Column_List" /> from mmall_user where id = #{id}
+  </select>
 
 </mapper>

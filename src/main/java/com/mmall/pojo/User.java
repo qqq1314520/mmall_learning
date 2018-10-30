@@ -13,11 +13,11 @@ public class User {
 
     private String phone;
 
-    private String question;
+    private String question;//密保问题
 
-    private String answer;
+    private String answer;//密保答案
 
-    private Integer role;
+    private Integer role;//用户的角色：普通用户、管理员
 
     private Date createTime;
 

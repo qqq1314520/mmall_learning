@@ -257,4 +257,8 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createByError();
     }
 
+    @Override
+    public User selectByUserId(Integer id) {
+        return userMapper.selectByUserId(id);
+    }
 }

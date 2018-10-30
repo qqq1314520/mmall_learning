@@ -45,5 +45,8 @@ public interface UserMapper {
     //验证email
     int checkEmailByUserId(@Param(value="email")String email,@Param(value="userId")Integer userId);
 
+    //测试接口
+    User selectByUserId(@Param(value="id") Integer id);
+
     /*ServerResponse checkAdminRole(User user);*/
 }
