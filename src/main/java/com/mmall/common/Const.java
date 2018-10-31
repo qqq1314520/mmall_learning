@@ -23,12 +23,12 @@ public class Const {
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
     }
 
-    /*public interface Cart{
-        int CHECKED = 1;//鍗宠喘鐗╄溅閫変腑鐘舵€?
-        int UN_CHECKED = 0;//璐墿杞︿腑鏈€変腑鐘舵€?
-        String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";
-        String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";
-    }*/
+    public interface Cart{
+        int CHECKED = 1;//被选中
+        int UN_CHECKED = 0;//不被选中
+        String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";//限制数量失败，买200，库存只有100，返回该值，并将买的数量变为100
+        String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";//限制数量成功
+    }
 
     public enum ProductStatusEnum{
         ON_SALE(1,"在线");
