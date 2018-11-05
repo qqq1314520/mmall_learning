@@ -44,7 +44,7 @@ public class UserManageController {
         return response;
     }
 
-    @RequestMapping(value="login.do/{id}",method = RequestMethod.POST)
+    @RequestMapping(value="log.do/{id}",method = RequestMethod.POST)
     @ResponseBody
     public String selectByUserId(@PathVariable(value = "id") Integer id){
         User user = iUserService.selectByUserId(id);

@@ -48,14 +48,14 @@ public class Const {
         }
     }
 
-    /*
+
     public enum OrderStatusEnum{
-        CANCELED(0,"宸插彇娑?),
-                NO_PAY(10,"鏈敮浠?),
-                        PAID(20,"宸蹭粯娆?),
-                                SHIPPED(40,"宸插彂璐?),
-                                        ORDER_SUCCESS(50,"璁㈠崟瀹屾垚"),
-                                        ORDER_CLOSE(60,"璁㈠崟鍏抽棴");
+        CANCELED(0,"已取消"),
+                NO_PAY(10,"未支付"),
+                        PAID(20,"已支付"),
+                                SHIPPED(40,"已发货"),
+                                        ORDER_SUCCESS(50,"订单完成"),
+                                        ORDER_CLOSE(60,"订单关闭");
 
 
         OrderStatusEnum(int code,String value){
@@ -83,17 +83,21 @@ public class Const {
         }
     }
     public interface  AlipayCallback{
+        //等待买家付款
         String TRADE_STATUS_WAIT_BUYER_PAY = "WAIT_BUYER_PAY";
+        //交易成功
         String TRADE_STATUS_TRADE_SUCCESS = "TRADE_SUCCESS";
 
+        //返回值
         String RESPONSE_SUCCESS = "success";
+        //返回值
         String RESPONSE_FAILED = "failed";
     }
 
 
-
+    //支付平台
     public enum PayPlatformEnum{
-        ALIPAY(1,"鏀粯瀹?");
+        ALIPAY(1,"支付宝");
 
                 PayPlatformEnum(int code,String value){
             this.code = code;
@@ -110,7 +114,7 @@ public class Const {
             return code;
         }
         }
-
+/*
     public enum PaymentTypeEnum{
         ONLINE_PAY(1,"鍦ㄧ嚎鏀粯");
 
