@@ -5,29 +5,29 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by geely
+ * 订单扩展类
  */
 public class OrderVo {
 
-    private Long orderNo;
+    private Long orderNo;//订单号
 
-    private BigDecimal payment;
+    private BigDecimal payment;//总金额
 
-    private Integer paymentType;
+    private Integer paymentType;//支付方式
 
-    private String paymentTypeDesc;
-    private Integer postage;
+    private String paymentTypeDesc;//支付方式的描述
 
-    private Integer status;
+    private Integer postage;//运费
 
+    private Integer status;//订单状态
 
-    private String statusDesc;
+    private String statusDesc;//订单状态描述
 
-    private String paymentTime;
+    private String paymentTime;//支付时间
 
-    private String sendTime;
+    private String sendTime;//发货时间
 
-    private String endTime;
+    private String endTime;//交易完成时间
 
     private String closeTime;
 
@@ -36,11 +36,11 @@ public class OrderVo {
     //订单的明细
     private List<OrderItemVo> orderItemVoList;
 
-    private String imageHost;
-    private Integer shippingId;
-    private String receiverName;
+    private String imageHost;//图片地址
+    private Integer shippingId;//收货地址id
+    private String receiverName;//收货人姓名
 
-    private ShippingVo shippingVo;
+    private ShippingVo shippingVo;//具体收货地址
 
     public Long getOrderNo() {
         return orderNo;

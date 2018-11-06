@@ -3,6 +3,8 @@ package com.mmall.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
+//订单表
+
 public class Order {
     private Integer id;
 
@@ -12,21 +14,21 @@ public class Order {
 
     private Integer shippingId;
 
-    private BigDecimal payment;
+    private BigDecimal payment;//实际付款金额
 
-    private Integer paymentType;
+    private Integer paymentType;//支付方式:在线支付
 
-    private Integer postage;
+    private Integer postage;//运费
 
-    private Integer status;
+    private Integer status;//订单状态
 
-    private Date paymentTime;
+    private Date paymentTime;//支付时间
 
-    private Date sendTime;
+    private Date sendTime;//发货时间
 
-    private Date endTime;
+    private Date endTime;//交易完成时间
 
-    private Date closeTime;
+    private Date closeTime;//交易关闭时间
 
     private Date createTime;
 

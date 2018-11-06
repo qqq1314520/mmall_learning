@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * Created by geely
+ * 订单总的商品
  */
 public class OrderProductVo {
-    private List<OrderItemVo> orderItemVoList;
+    private List<OrderItemVo> orderItemVoList;//订单项
     private BigDecimal productTotalPrice;
     private String imageHost;
 

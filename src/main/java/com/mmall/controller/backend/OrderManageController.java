@@ -29,9 +29,15 @@ public class OrderManageController {
     @Autowired
     private IOrderService iOrderService;
 
-   /*
-   //分页显示订单的方法
-   @RequestMapping("list.do")
+
+    /**
+     * 后台分页显示订单的方法
+     * @param session
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    @RequestMapping("list.do")
     @ResponseBody
     public ServerResponse<PageInfo> orderList(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                               @RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
@@ -49,7 +55,12 @@ public class OrderManageController {
         }
     }
 
-    //根据订单号显示订单的详细信息
+    /**
+     * 根据订单号显示订单的详细信息
+     * @param session
+     * @param orderNo
+     * @return
+     */
     @RequestMapping("detail.do")
     @ResponseBody
     public ServerResponse<OrderVo> orderDetail(HttpSession session, Long orderNo){
@@ -68,8 +79,14 @@ public class OrderManageController {
         }
     }
 
-
-    //分页查询订单
+    /**
+     * 按订单号分页搜索订单
+     * @param session
+     * @param orderNo
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     @RequestMapping("search.do")
     @ResponseBody
     public ServerResponse<PageInfo> orderSearch(HttpSession session, Long orderNo,@RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
@@ -87,8 +104,12 @@ public class OrderManageController {
         }
     }
 
-
-    //设置订单已经发货
+    /**
+     * 设置订单已经发货
+     * @param session
+     * @param orderNo
+     * @return
+     */
     @RequestMapping("send_goods.do")
     @ResponseBody
     public ServerResponse<String> orderSendGoods(HttpSession session, Long orderNo){
@@ -105,6 +126,6 @@ public class OrderManageController {
             return ServerResponse.createByErrorMessage("无权限操作");
         }
     }
-*/
+
 
 }

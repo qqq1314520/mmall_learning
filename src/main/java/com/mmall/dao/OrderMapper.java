@@ -21,14 +21,14 @@ public interface OrderMapper {
     //通过用户和订单id查询 订单（防止横向越权）
     Order selectByUserIdAndOrderNo(@Param("userId")Integer userId,@Param("orderNo")Long orderNo);
 
-    //
+    //通过订单id获取所有信息
     Order selectByOrderNo(Long orderNo);
 
 
-    //
+    //通过用户id获取所有信息
     List<Order> selectByUserId(Integer userId);
 
-    //
+    //后台：查询数据库中所有订单
     List<Order> selectAllOrder();
 
 }

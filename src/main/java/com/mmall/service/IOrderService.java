@@ -19,36 +19,36 @@ public interface IOrderService {
 
     //查询订单支付状态
     ServerResponse queryOrderPayStatus(Integer userId, Long orderNo);
-/*
+
     //创建订单
     ServerResponse createOrder(Integer userId, Integer shippingId);
 
     //取消订单
     ServerResponse<String> cancel(Integer userId, Long orderNo);
 
-    //
+    //获取购物车中的商品
     ServerResponse getOrderCartProduct(Integer userId);
 
     //查询订单的详细信息
     ServerResponse<OrderVo> getOrderDetail(Integer userId, Long orderNo);
 
     //分页获取 所有订单
-    ServerResponse<PageInfo> getOrderList(Integer userId, int pageNum, int pageSize);*/
+    ServerResponse<PageInfo> getOrderList(Integer userId, int pageNum, int pageSize);
 
 
-    //backend
-    /*
+    //backend 后台
+
     //后台分页显示所有订单
     ServerResponse<PageInfo> manageList(int pageNum, int pageSize);
 
     //后台显示订单的具体信息
     ServerResponse<OrderVo> manageDetail(Long orderNo);
 
-    //后台分页查询
+    //按订单号分页搜索订单
     ServerResponse<PageInfo> manageSearch(Long orderNo, int pageNum, int pageSize);
 
     //后台设置商品已发货
-    ServerResponse<String> manageSendGoods(Long orderNo);*/
+    ServerResponse<String> manageSendGoods(Long orderNo);
 
 
 }

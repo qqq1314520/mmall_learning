@@ -35,9 +35,12 @@ public class OrderController {
     @Autowired
     private IOrderService iOrderService;
 
-
-/*
-    //创建新的订单
+    /**
+     * 创建新的订单的方法
+     * @param session 校验
+     * @param shippingId 发货地址的id
+     * @return
+     */
     @RequestMapping("create.do")
     @ResponseBody
     public ServerResponse create(HttpSession session, Integer shippingId){
@@ -48,7 +51,12 @@ public class OrderController {
         return iOrderService.createOrder(user.getId(),shippingId);
     }
 
-    //取消订单
+    /**
+     * 取消订单
+     * @param session 校验
+     * @param orderNo 订单号
+     * @return
+     */
     @RequestMapping("cancel.do")
     @ResponseBody
     public ServerResponse cancel(HttpSession session, Long orderNo){
@@ -59,7 +67,12 @@ public class OrderController {
         return iOrderService.cancel(user.getId(),orderNo);
     }
 
-    //
+
+    /**
+     * 获取购物车中已经选中的商品
+     * @param session
+     * @return
+     */
     @RequestMapping("get_order_cart_product.do")
     @ResponseBody
     public ServerResponse getOrderCartProduct(HttpSession session){
@@ -70,8 +83,12 @@ public class OrderController {
         return iOrderService.getOrderCartProduct(user.getId());
     }
 
-
-    //通过订单号和用户id 显示订单的具体信息
+    /**
+     * 通过订单号和用户id 显示订单的具体信息
+     * @param session
+     * @param orderNo
+     * @return
+     */
     @RequestMapping("detail.do")
     @ResponseBody
     public ServerResponse detail(HttpSession session,Long orderNo){
@@ -82,7 +99,13 @@ public class OrderController {
         return iOrderService.getOrderDetail(user.getId(),orderNo);
     }
 
-    //通过用户id 分页向上所有订单
+    /**
+     * 通过用户id 分页向上所有订单
+     * @param session
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     @RequestMapping("list.do")
     @ResponseBody
     public ServerResponse list(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
@@ -91,7 +114,7 @@ public class OrderController {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
         }
         return iOrderService.getOrderList(user.getId(),pageNum,pageSize);
-    }*/
+    }
 
     /**
      * 用户付款触发的方法

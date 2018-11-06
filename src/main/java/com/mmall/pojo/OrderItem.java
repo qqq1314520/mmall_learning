@@ -3,24 +3,25 @@ package com.mmall.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
+//单份订单的明细表
 public class OrderItem {
     private Integer id;
 
     private Integer userId;
 
-    private Long orderNo;
+    private Long orderNo;//所属订单的订单号
 
-    private Integer productId;
+    private Integer productId;//该订单明细表中商品的id
 
-    private String productName;
+    private String productName;//该订单明细表商品的名称
 
-    private String productImage;
+    private String productImage;//商品的图片地址
 
-    private BigDecimal currentUnitPrice;
+    private BigDecimal currentUnitPrice;//生成订单时，该商品的价格
 
-    private Integer quantity;
+    private Integer quantity;//商品的数量
 
-    private BigDecimal totalPrice;
+    private BigDecimal totalPrice;//该商品的总价
 
     private Date createTime;
 

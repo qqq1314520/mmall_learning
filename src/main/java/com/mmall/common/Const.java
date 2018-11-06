@@ -114,9 +114,9 @@ public class Const {
             return code;
         }
         }
-/*
+
     public enum PaymentTypeEnum{
-        ONLINE_PAY(1,"鍦ㄧ嚎鏀粯");
+        ONLINE_PAY(1,"在线支付");
 
         PaymentTypeEnum(int code,String value){
             this.code = code;
@@ -143,6 +143,6 @@ public class Const {
             throw new RuntimeException("涔堟湁鎵惧埌瀵瑰簲鐨勬灇涓?");
         }
 
-    }*/
+    }
 
 }

@@ -24,6 +24,6 @@ public interface OrderItemMapper {
     //
     List<OrderItem> getByOrderNo(@Param("orderNo")Long orderNo);
 
-    //
+    //将所有订单项插入订单明细表以备后面使用
     void batchInsert(@Param("orderItemList") List<OrderItem> orderItemList);
 }

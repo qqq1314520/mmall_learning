@@ -1,22 +1,23 @@
 package com.mmall.vo;
 
 /**
- * Created by geely
+ * 收货地址信息扩展类
  */
 public class ShippingVo {
-    private String receiverName;
 
-    private String receiverPhone;
+    private String receiverName;//收货人姓名
 
-    private String receiverMobile;
+    private String receiverPhone;//收货人电话
 
-    private String receiverProvince;
+    private String receiverMobile;//收货人手机
 
-    private String receiverCity;
+    private String receiverProvince;//收货人的省
 
-    private String receiverDistrict;
+    private String receiverCity;//收货人的市
 
-    private String receiverAddress;
+    private String receiverDistrict;//收货人的镇
+
+    private String receiverAddress;//收货人的家
 
     private String receiverZip;
 
